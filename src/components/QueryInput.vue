@@ -17,5 +17,18 @@ import debounce from "../utils/debounce";
 </script>
 
 <template>
-  <input ref="queryInput" type="text" v-on:input="debounceInput" />
+  <div class="container">
+    <h3>Type your search:</h3>
+    <input ref="queryInput" type="text" v-on:input="debounceInput" />
+  </div>
 </template>
+
+<style scoped>
+.container,
+input {
+  width: 100%;
+}
+.container h3 {
+  margin-bottom: 8px;
+}
+</style>
