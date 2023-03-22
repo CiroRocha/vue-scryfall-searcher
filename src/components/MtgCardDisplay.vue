@@ -1,27 +1,13 @@
-<script>
-export default {
-  mounted() {
-    fetch(`https://api.scryfall.com/cards/search?q=${this.cardName}`).then(
-      (res) =>
-        res.json().then((jsonData) => {
-          const cardObj = jsonData?.data[0];
-          if (!cardObj) return;
-          const imgUrl = cardObj.image_uris.png;
-          this.$refs.cardDisplay.setAttribute("src", imgUrl);
-        })
-    );
-  },
-};
-</script>
-
 <script setup>
-defineProps({
-  cardName: String,
-});
+import scryfallStore from "../store/queryStore";
 </script>
 
 <template>
-  <img ref="cardDisplay" class="mtg-card-display" />
+  <img
+    ref="cardDisplay"
+    class="mtg-card-display"
+    v-bind:src="scryfallStore.scryfallCardObject?.image_uris?.png"
+  />
 </template>
 
 <style scoped>

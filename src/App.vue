@@ -1,19 +1,16 @@
-<script>
-export default {
-  mounted() {},
-};
-</script>
+<script></script>
 
-<script setup></script>
+<script setup>
+import scryfallStore from "./store/queryStore";
+import QueryInput from "./components/QueryInput.vue";
+import MtgCardDisplay from "./components/MtgCardDisplay.vue";
+</script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <h1 style="color: white">{{ scryfallStore.scryfallQuery }}</h1>
+    <QueryInput />
+    <MtgCardDisplay />
   </div>
 </template>
 
